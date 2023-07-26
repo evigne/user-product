@@ -19,15 +19,7 @@ describe('ProductService', () => {
         }),
         TypeOrmModule.forFeature([Product]),
       ],
-      providers: [
-        ProductService,
-        ProductResolver,
-
-        // {
-        //   provide: getRepositoryToken(Product),
-        //   useClass: Repository<Product>,
-        // },
-      ],
+      providers: [ProductService, ProductResolver],
     }).compile();
 
     productService = module.get<ProductService>(ProductService);
