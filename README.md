@@ -22,7 +22,7 @@
 
 ## Description
 
-User Product Build Using [Nest](https://github.com/nestjs/nest) framework TypeScript and user GraphQL and TypeORM.
+User Product Build Using [Nest](https://github.com/nestjs/nest) framework TypeScript and uses GraphQL and TypeORM.
 
 ## Installation
 
@@ -47,6 +47,8 @@ $ npm run start:prod
 
 ```bash
 # unit tests
+#TestSuites: User, Product
+#Tests: Create User, Create Product and Add Products to User
 $ npm run test
 ```
 
