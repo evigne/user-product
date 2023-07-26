@@ -9,7 +9,7 @@ describe('ProductService', () => {
   let productService: ProductService;
 
   beforeEach(async () => {
-    const moduleRef = await Test.createTestingModule({
+    const module = await Test.createTestingModule({
       imports: [
         TypeOrmModule.forRoot({
           type: 'sqlite',
@@ -30,7 +30,7 @@ describe('ProductService', () => {
       ],
     }).compile();
 
-    productService = moduleRef.get<ProductService>(ProductService);
+    productService = module.get<ProductService>(ProductService);
   });
 
   it('should create a new product', async () => {
@@ -38,7 +38,7 @@ describe('ProductService', () => {
       name: 'Sample Product',
       price: 10.99,
     };
-    // console.log('productservice', productService);
+
     const createdProduct = await productService.create(productInput);
 
     expect(createdProduct.name).toBe(productInput.name);

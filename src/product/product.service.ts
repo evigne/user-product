@@ -12,7 +12,6 @@ export class ProductService {
   ) {}
 
   async create(createProductInput: CreateProductInput): Promise<Product> {
-    // console.log('CreateREpo', this.productRepository);
     const product = this.productRepository.create(createProductInput);
     return this.productRepository.save(product);
   }
@@ -44,6 +43,13 @@ export class ProductService {
   async remove(id: string): Promise<boolean> {
     const deleteProduct = await this.productRepository.delete(id);
     return deleteProduct.affected > 0;
+  }
+
+  async createBulk(
+    createProductInput: CreateProductInput[],
+  ): Promise<Product[]> {
+    const products = this.productRepository.create(createProductInput);
+    return await this.productRepository.save(products);
   }
 
   async findManyProducts(ids: string[]): Promise<Product[]> {

@@ -60,11 +60,6 @@ export class UserService {
       relations: ['order'],
     });
 
-    // findOneBy({
-    //   id,
-    // } as FindOneOptions<any>);
-
-    console.log('Order:', order);
     const products = await this.productRepository.findBy({
       id: In(order),
     });
@@ -73,10 +68,8 @@ export class UserService {
       throw new NotFoundException('User Not Found');
     }
 
-    console.log('GotProduct', products);
-
     user.addProducts(products);
-    console.log(user.order);
+
     return this.userRepository.save(user);
   }
 }
