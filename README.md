@@ -19,12 +19,10 @@
     <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
   <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
 </p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+User Product Build Using [Nest](https://github.com/nestjs/nest) framework TypeScript and user GraphQL and TypeORM.
 
 ## Installation
 
@@ -52,15 +50,96 @@ $ npm run start:prod
 $ npm run test
 ```
 
-## Support
+## Sample Query and Mutation
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+#Create a User
+mutation{
+createUser(createUserInput:{
+  name:"Vignesh",
+  email:"vignesh@mail.com",
+  age:30
+}){
+  id
+  name
+  email
+  age
+
+}
+}
+```
+
+```bash
+#Get User
+query{
+  getUser{
+    id
+    name
+    email
+    age
+    order{
+      name
+      id
+    }
+  }
+}
+```
+
+```bash
+#Create Product
+mutation {
+  createProduct(createProductInput: { name: "AirPods", price: 349.99 }) {
+    id
+    name
+    price
+  }
+}
+```
+
+```bash
+#Get Product
+query{
+  getProduct{
+    id
+    name
+    price
+  },
+  getProductById(id:"435c1d1d-8302-4ec4-b76d-10baa0bc424f"){ #Sample id
+    id
+    name
+    price
+  }
+}
+```
+
+```bash
+
+#Add Products to User
+mutation{
+  addUserProduct(addUserProduct:{
+    id:"0df9cbbd-97d5-4b51-bab2-c73bb6117f2a",
+    order:[
+      "458cde6f-2e5f-43b5-ade4-2f93c8a12433",
+      "b8f51637-4385-454c-beaf-cbaca9d93dee",
+    ]
+  }){
+    id
+    name
+    email
+    age
+    order{
+      name
+      price
+    }
+
+  }
+}
+```
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - [Vigneshwaran]
+- LinkedIn - [https://nestjs.com](https://www.linkedin.com/in/e-vig/)
 
 ## License
 
