@@ -139,7 +139,7 @@ mutation{
 ## Stay in touch
 
 - Author - [Vigneshwaran]
-- LinkedIn - [https://nestjs.com](https://www.linkedin.com/in/e-vig/)
+- LinkedIn - [https://www.linkedin.com/in/e-vig/](https://www.linkedin.com/in/e-vig/)
 
 ## License
 
